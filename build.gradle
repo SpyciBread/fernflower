@@ -1,5 +1,15 @@
 // Copyright 2000-2021 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
 apply plugin: 'java'
+plugins {
+  id 'pmd'
+}
+
+pmd {
+  consoleOutput = true
+  toolVersion = "6.39.0"
+  rulesMinimumPriority = 5
+  ruleSets = ["category/java/errorprone.xml", "category/java/bestpractices.xml"]
+}
 
 compileJava {
   sourceCompatibility '17'
